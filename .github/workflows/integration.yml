@@ -22,11 +22,7 @@ jobs:
         with:
           node-version: ${{ matrix.node-version }}
           cache: "npm"
-<<<<<<< HEAD
-      - run: npm i
-=======
       - run: npm install
->>>>>>> fae822304db0e13bf988443f7ea304a3949f84eb
       - run: npm run build
   unit-tests:
     runs-on: ubuntu-latest
