@@ -19,13 +19,13 @@ const Navbar: React.FC = () => {
     setOpenUserMenu((prev) => !prev);
   }, []);
   return (
-    <div className="bg-neutral-50 h-[50px] border border-b-2 flex items-center justify-between px-[30px]">
+    <div className="bg-white h-[50px] border border-b-[1px] flex items-center justify-between px-[30px]">
       <p className="font-bold ">LOGO</p>
       <div className="flex items-center">
         <div className="relative">
           <BiSearch className="absolute left-2 top-[9px] text-[18px]" />
           <input
-            className="p-1 border-2 rounded-md pl-[28px] text-[14px]"
+            className="p-1 border-[1px] rounded-md pl-[28px] text-[14px]"
             value={searchValue}
             onChange={handleSearchValue}
             placeholder="Search"

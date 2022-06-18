@@ -18,7 +18,7 @@ const UserMenu = React.forwardRef<HTMLDivElement, Props>((props, ref) => {
   return (
     <div
       ref={userMenuRef}
-      className="absolute top-[34px] right-[-20px] w-[250px] bg-white border-[1px] shadow-2xl rounded-lg  pt-[15px] pb-[10px]"
+      className="z-40 absolute top-[34px] right-[-20px] w-[250px] bg-white border-[1px] shadow-2xl rounded-lg  pt-[15px] pb-[10px]"
     >
       <p className="text-[12px] font-semibold px-[20px]">KEVIN.AMEXO</p>
       <ul className="list-none text-neutral-700">
