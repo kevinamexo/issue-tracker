@@ -1,11 +1,11 @@
-import React, { useState } from "react";
+import React from "react";
 import { GrProjects } from "react-icons/gr";
 import { GoProject } from "react-icons/go";
-import { BsListOl, BsChevronCompactDown } from "react-icons/bs";
+import { BsListOl } from "react-icons/bs";
 
 const Sidebar: React.FC = () => {
-  const [projectsAmount, setProjectsAmount] = useState<number>(0);
-  const [TaskAmount, setTaskAmount] = useState<number>(0);
+  //   const [projectsAmount, setProjectsAmount] = useState<number>(0);
+  //   const [TaskAmount, setTaskAmount] = useState<number>(0);
 
   return (
     <div className="fixed left-0 w-[250px] border-r-[1px] h-[calc(100vh-20px)] px-[10px]  pt-[30px]">

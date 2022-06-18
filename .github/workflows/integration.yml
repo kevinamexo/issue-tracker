@@ -22,7 +22,7 @@ jobs:
         with:
           node-version: ${{ matrix.node-version }}
           cache: "npm"
-      - run: npm run i
+      - run: npm i
       - run: npm run build
   unit-tests:
     runs-on: ubuntu-latest
