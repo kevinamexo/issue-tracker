@@ -4,6 +4,7 @@ import "./App.css";
 import Sidebar from "./components/layout/Sidebar/Sidebar";
 import { Variants, motion } from "framer-motion";
 import { BiChevronLeft, BiChevronRight } from "react-icons/bi";
+import Messages from "./pages/Messages/Messages";
 
 const App: React.FC = () => {
   const [sidebarFull, setSidebarFull] = useState<boolean>(true);
@@ -40,6 +41,7 @@ const App: React.FC = () => {
           sidebarFull ? "" : "border-l-[1px]"
         } h-[calc(100vh-50px)] z-30 bg-white`}
       >
+        <Messages />
         <span
           className="absolute top-[70px] left-[-15px] border-[1px] p-[3px] text-[20px] rounded-2xl z-30 bg-white shadow-lg cursor-pointer"
           onClick={handleMinimizeMenu}
