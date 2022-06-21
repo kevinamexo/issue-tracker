@@ -2,7 +2,7 @@ import React from "react";
 
 const MessageCard: React.FC = () => {
   return (
-    <div className=" relative flex items-center py-[20px]  px-[20px] border-b-[1px] cursor-pointer hover:bg-slate-200">
+    <div className=" relative flex items-center py-[20px]  px-[20px] border-b-[1px] border-neutral-50 cursor-pointer hover:bg-slate-200">
       <img
         src="man.jpg"
         alt=""
