@@ -1,9 +1,10 @@
 import React, { useState } from "react";
 import { Route, Routes } from "react-router-dom";
-import Dashboard from "./pages/Dashboard/Dashboard";
+import Project from "./pages/Project/Project";
 import Messages from "./pages/Messages/Messages";
 import { BiChevronLeft, BiChevronRight } from "react-icons/bi";
 import { Variants, motion } from "framer-motion";
+import Dashboard from "./pages/Dashboard/Dashboard";
 
 const Main: React.FC = () => {
   const [sidebarFull, setSidebarFull] = useState<boolean>(true);
@@ -39,6 +40,7 @@ const Main: React.FC = () => {
     >
       <Routes>
         <Route path="dashboard" element={<Dashboard />} />
+        <Route path="project" element={<Project />} />
         <Route path="messages" element={<Messages />} />
       </Routes>
       <span

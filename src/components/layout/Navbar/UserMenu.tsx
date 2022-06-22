@@ -12,8 +12,8 @@ const UserMenu = React.forwardRef<HTMLDivElement, Props>((props, ref) => {
   };
   useOnClickOutside(
     userMenuRef,
-    ref as React.RefObject<HTMLElement>,
-    clickOutsideHandler
+    clickOutsideHandler,
+    ref as React.RefObject<HTMLElement>
   );
   return (
     <div

@@ -36,27 +36,29 @@ const Sidebar: React.FC = () => {
       <div className="relative">
         <p className="ml-[20px]">ORGANIZATION NAME</p>
         <ul className="list-none mt-[30px] border-t-[1px] py-[20px]">
-          <li
-            className="pl-[15px] pr-[10px] rounded-md py-[10px] cursor-pointer"
-            onClick={() => setActiveSidebarTab("dashboard")}
-          >
-            <div
-              className={`flex items-center justify-between ${
-                activeSidebarTab === "dashboard"
-                  ? "bg-black text-neutral-100"
-                  : "hover:bg-neutral-100"
-              }  p-[5px] rounded-md`}
+          <Link to="/dashboard">
+            <li
+              className="pl-[15px] pr-[10px] rounded-md py-[10px] cursor-pointer"
+              onClick={() => setActiveSidebarTab("dashboard")}
             >
-              <span className="flex items-center justify-between ">
-                <RiDashboardLine
-                  className={`text-[20px] ${
-                    activeSidebarTab === "dashboard" ? "text-neutral-100" : ""
-                  }`}
-                />
-                <p className="ml-[10px] text-[13px]">Dashboard </p>
-              </span>
-            </div>
-          </li>
+              <div
+                className={`flex items-center justify-between ${
+                  activeSidebarTab === "dashboard"
+                    ? "bg-black text-neutral-100 "
+                    : "hover:bg-neutral-100"
+                }  p-[5px] rounded-md`}
+              >
+                <span className="flex items-center justify-between ">
+                  <RiDashboardLine
+                    className={`text-[20px] ${
+                      activeSidebarTab === "dashboard" ? "text-neutral-100" : ""
+                    }`}
+                  />
+                  <p className="ml-[10px] text-[13px]">Dashboard </p>
+                </span>
+              </div>
+            </li>
+          </Link>
           <li
             className={`pl-[15px] pr-[10px]  py-[10px] cursor-pointer ${
               isTabActive("projects") ? "bg-neutral-100" : ""
@@ -102,7 +104,7 @@ const Sidebar: React.FC = () => {
               </div>
             )}
           </li>
-          <Link to="/dashboard">
+          <Link to="/my-tasks">
             <li
               className="pl-[15px] pr-[10px] rounded-md py-[10px] cursor-pointer"
               onClick={() => setActiveSidebarTab("my-tasks")}
