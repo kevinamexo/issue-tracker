@@ -1,12 +1,17 @@
 import React, { useCallback, useRef, useState } from "react";
 import { BiSearch } from "react-icons/bi";
 import { IoMdNotifications } from "react-icons/io";
+import { FiPlus } from "react-icons/fi";
 import UserMenu from "./UserMenu";
+import { useAppDispatch, useAppSelector } from "../../../redux/app/hooks";
+import { setModalActive } from "../../../redux/features/UI/modalsSlice";
 
 const Navbar: React.FC = () => {
   const [searchValue, setSearchValue] = useState<string>("");
   const [openUserMenu, setOpenUserMenu] = useState<boolean>(true);
   const userIconRef = useRef<HTMLDivElement>(null);
+  const dispatch = useAppDispatch();
+  const { modalActive } = useAppSelector((state) => state.modals);
 
   const handleSearchValue = useCallback(
     (e: React.ChangeEvent<HTMLInputElement>): void => {
@@ -15,13 +20,23 @@ const Navbar: React.FC = () => {
     []
   );
 
+  const handleAddItem = useCallback(() => {
+    dispatch(setModalActive(!modalActive));
+  }, [modalActive]);
+
   const handleOpenUserMenu = useCallback((e: React.MouseEvent<HTMLElement>) => {
     setOpenUserMenu((prev) => !prev);
   }, []);
   return (
-    <div className="bg-white h-[50px] border border-b-[1px] flex items-center justify-between px-[30px]">
+    <div className="absolute top-0 left-0 right-0 w-[100vw] h-[50px] border border-b-[1px] flex items-center justify-between px-[30px] z-30 bg-white">
       <p className="font-bold ">LOGO</p>
-      <div className="flex items-center">
+      <div className="flex items-center  z-30">
+        <div
+          className="bg-black text-white mr-[20px] px-2 py-1 rounded-md font-bold cursor-pointer"
+          onClick={handleAddItem}
+        >
+          <FiPlus />
+        </div>
         <div className="relative">
           <BiSearch className="absolute left-2 top-[9px] text-[18px]" />
           <input
