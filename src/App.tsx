@@ -10,8 +10,8 @@ const App: React.FC = () => {
   const { modalActive } = useAppSelector((state) => state.modals);
   return (
     <div
-      className={`pt-[50px] ${
-        modalActive ? "max-h-[100vh] max-w-[100%]  overflow-hidden" : ""
+      className={`pt-[50px] overflow-x-hidden ${
+        modalActive ? " max-w-[100vw] min-h-[100vh] min-w-[100%]" : ""
       } relative font-inter w-[100vw] z-[50]`}
     >
       <Navbar />

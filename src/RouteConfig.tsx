@@ -32,11 +32,11 @@ const Main: React.FC = () => {
       variants={sidebarVariants}
       initial="inital"
       animate={sidebarFull ? "closed" : "initial"}
-      className={`relative flex items-center ml-[250px] ${
+      className={`flex items-center ml-[250px] ${
         sidebarFull ? "w-[calc(100vw-250px)]" : "w-[calc(100vw-40px)]"
       }   ${
         sidebarFull ? "" : "border-l-[1px]"
-      } h-[calc(100vh-50px)] z-30 bg-white`}
+      } h-[calc(100vh-50px)] z-30 bg-red`}
     >
       <Routes>
         <Route path="dashboard" element={<Dashboard />} />

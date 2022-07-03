@@ -2,7 +2,11 @@
 module.exports = {
   content: ["./src/**/*.{js,jsx,ts,tsx}"],
   theme: {
-    extend: {},
+    extend: {
+      screens: {
+        "dashboard-sidebar": "1450px",
+      },
+    },
   },
   plugins: [],
 };

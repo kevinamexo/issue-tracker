@@ -2,6 +2,7 @@ import React, { useRef } from "react";
 import { useDispatch } from "react-redux";
 import useOnClickOutside from "../../hooks/useOnClickOutside";
 import { setModalActive } from "../../redux/features/UI/modalsSlice";
+import { motion, Variants } from "framer-motion";
 
 interface Props {
   newItem?: boolean;
@@ -10,14 +11,31 @@ const AddItemModal: React.FC<Props> = ({ newItem }) => {
   const addItemRef = useRef<HTMLDivElement>(null);
   const dispatch = useDispatch();
 
+  const modalVariants: Variants = {
+    initial: {
+      opacity: 0,
+      y: 20,
+    },
+    final: {
+      opacity: 1,
+      y: 0,
+      transition: {
+        duration: 0.3,
+      },
+    },
+  };
+
   const closeModal = () => {
     dispatch(setModalActive(false));
   };
 
   useOnClickOutside(addItemRef, closeModal, addItemRef);
   return (
-    <div
-      className="w-[550px] bg-white mt-[100px] py-[10px] rounded-sm h-[600px]"
+    <motion.div
+      variants={modalVariants}
+      initial="initial"
+      animate="final"
+      className="w-[550px] bg-white mt-[100px] py-[10px] rounded-md h-[585px]"
       ref={addItemRef}
     >
       <div className="flex items-center py-3 px-[30px] ">
@@ -156,6 +174,7 @@ const AddItemModal: React.FC<Props> = ({ newItem }) => {
             <button
               type="submit"
               className="ml-[20px] mt-[20px] bg-white text-blue-700 border-[1px] border-blue-700 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm w-full sm:w-auto px-8 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800 hover:bg-blue-100 transition ease-in-out"
+              onClick={closeModal}
             >
               Cancel
             </button>
@@ -166,7 +185,7 @@ const AddItemModal: React.FC<Props> = ({ newItem }) => {
           </p>
         </div>
       </form>
-    </div>
+    </motion.div>
   );
 };
 

@@ -28,9 +28,9 @@ const Navbar: React.FC = () => {
     setOpenUserMenu((prev) => !prev);
   }, []);
   return (
-    <div className="absolute top-0 left-0 right-0 w-[100vw] h-[50px] border border-b-[1px] flex items-center justify-between px-[30px]">
+    <div className="absolute top-0 left-0 right-0 w-[100vw] h-[50px] border border-b-[1px] flex items-center justify-between px-[30px] z-30 bg-white">
       <p className="font-bold ">LOGO</p>
-      <div className="flex items-center">
+      <div className="flex items-center  z-30">
         <div
           className="bg-black text-white mr-[20px] px-2 py-1 rounded-md font-bold cursor-pointer"
           onClick={handleAddItem}

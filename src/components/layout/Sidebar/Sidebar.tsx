@@ -32,7 +32,7 @@ const Sidebar: React.FC = () => {
   };
 
   return (
-    <div className="absolute flex flex-col justify-between left-0 w-[250px] border-r-[1px] h-[calc(100vh-20px)]   pt-[30px]">
+    <div className="fixed flex flex-col justify-between left-0 w-[250px] border-r-[1px] h-[calc(100vh-20px)] pt-[30px]">
       <div className="relative">
         <p className="ml-[20px]">ORGANIZATION NAME</p>
         <ul className="list-none mt-[30px] border-t-[1px] py-[20px]">
@@ -59,51 +59,53 @@ const Sidebar: React.FC = () => {
               </div>
             </li>
           </Link>
-          <li
-            className={`pl-[15px] pr-[10px]  py-[10px] cursor-pointer ${
-              isTabActive("projects") ? "bg-neutral-100" : ""
-            }`}
-            onClick={() => setActiveSidebarTab("projects")}
-          >
-            <div
-              className={`flex items-center justify-between ${
-                activeSidebarTab === "projects"
-                  ? "bg-black text-neutral-100"
-                  : "hover:bg-neutral-100"
-              } h-[30px] px-[5px] rounded-md`}
+          <Link to="/project">
+            <li
+              className={`pl-[15px] pr-[10px]  py-[10px] cursor-pointer ${
+                isTabActive("projects") ? "bg-neutral-100" : ""
+              }`}
+              onClick={() => setActiveSidebarTab("projects")}
             >
-              <span
+              <div
                 className={`flex items-center justify-between ${
-                  activeSidebarTab === "projects" ? "text-neutral-100" : ""
-                }`}
+                  activeSidebarTab === "projects"
+                    ? "bg-black text-neutral-100"
+                    : "hover:bg-neutral-100"
+                } h-[30px] px-[5px] rounded-md`}
               >
-                <GoProject />
-                <p className="ml-[10px] text-[13px] py-[5px] ">Projects </p>
-              </span>
-              <div className="flex ">
-                <span className="bg-orange-100 px-3  text-[14px] rounded-lg font-semibold text-neutral-500 mr-[5px]">
-                  2
-                </span>
                 <span
-                  className="text-[20px] text-neutral-600"
-                  onClick={() => openSidebarTab("projects")}
+                  className={`flex items-center justify-between ${
+                    activeSidebarTab === "projects" ? "text-neutral-100" : ""
+                  }`}
                 >
-                  {isTabActive("projects") ? (
-                    <BiChevronDown />
-                  ) : (
-                    <BiChevronRight />
-                  )}
+                  <GoProject />
+                  <p className="ml-[10px] text-[13px] py-[5px] ">Projects </p>
                 </span>
+                <div className="flex ">
+                  <span className="bg-orange-100 px-3  text-[14px] rounded-lg font-semibold text-neutral-500 mr-[5px]">
+                    2
+                  </span>
+                  <span
+                    className="text-[20px] text-neutral-600"
+                    onClick={() => openSidebarTab("projects")}
+                  >
+                    {isTabActive("projects") ? (
+                      <BiChevronDown />
+                    ) : (
+                      <BiChevronRight />
+                    )}
+                  </span>
+                </div>
               </div>
-            </div>
-            {isTabActive("projects") && (
-              <div className="border-l-2 ml-[12px] pt-[8px]">
-                {["12", "4324", "wef234"].map((i) => (
-                  <CategoryItem name={i} active={false} />
-                ))}
-              </div>
-            )}
-          </li>
+              {isTabActive("projects") && (
+                <div className="border-l-2 ml-[12px] pt-[8px]">
+                  {["12", "4324", "wef234"].map((i) => (
+                    <CategoryItem name={i} active={false} />
+                  ))}
+                </div>
+              )}
+            </li>
+          </Link>
           <Link to="/my-tasks">
             <li
               className="pl-[15px] pr-[10px] rounded-md py-[10px] cursor-pointer"
